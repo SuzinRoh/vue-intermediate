@@ -1,15 +1,14 @@
 <template>
     <div>
-        header
+        <h1>TODO it ! </h1>
     </div>
 </template>
 
-<script>
-export default {
-    // js scripit
-}
-</script>
 
-<style>
-/* css */
+<style scoped>
+    h1 {
+        color: #283e3f;
+        font-weight: 900;
+        margin: 2.5rem 0 1.5rem;
+    }
 </style>
