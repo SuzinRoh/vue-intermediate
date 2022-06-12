@@ -1,8 +1,8 @@
 <template>
   <div class="inputBox shadow">
-      <input v-model="newTodoItem" type="text">
+      <input v-model="newTodoItem" v-on:keyup.enter="addTodo" type="text">
       <span class="addContainer" v-on:click="addTodo">
-        <font-awesome-icon :icon="['fas', 'plus']" class="addBtn" />
+        <font-awesome-icon :icon="['fas', 'plus']" class="addIcon" />
       </span>
   </div>
 </template>
@@ -16,10 +16,13 @@ export default {
   }
   , methods: {
     addTodo: function() {
-      console.log(this.newTodoItem);
-      // localStorage.setItem(key, value);
-      localStorage.setItem(this.newTodoItem, this.newTodoItem);
+    if (this.newTodoItem !== '') {
+      var obj = {completed: false, item: this.newTodoItem};
+      localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
       this.clearInput();
+    }
+
+
     }
     , clearInput: function() {
        this.newTodoItem = '';
@@ -40,14 +43,11 @@ export default {
     line-height: 50px;
     border-radius: 5px;
   }
-  
+
   .inputBox input {
     border-style: none;
     font-size: 0.9rem;
   }
-
-  
-
 
   .addContainer {
     float: right;
@@ -57,7 +57,7 @@ export default {
     border-radius: 0 5px 5px 0;
   }
 
-  .addBtn {
+  .addIcon {
     color: white;
   }
 </style>
