@@ -16,13 +16,10 @@ export default {
   }
   , methods: {
     addTodo: function() {
-    if (this.newTodoItem !== '') {
-      var obj = {completed: false, item: this.newTodoItem};
-      localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
-      this.clearInput();
-    }
-
-
+      if (this.newTodoItem !== '') {
+        this.$emit('throwTodoItem', this.newTodoItem);
+        this.clearInput();
+      }
     }
     , clearInput: function() {
        this.newTodoItem = '';
