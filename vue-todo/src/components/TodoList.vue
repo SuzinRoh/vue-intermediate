@@ -27,7 +27,7 @@ export default {
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index, 1);
     }
-    , toggleComplete: function(todoItem, index) {
+    , toggleComplete: function(todoItem/*, index*/) {
       todoItem.completed = !todoItem.completed;
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
