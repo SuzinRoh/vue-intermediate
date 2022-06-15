@@ -24,7 +24,7 @@ export default {
   }
   , methods: {
     addOneItem: function(todoItem) {
-      var obj = {completed: false, item: todoItem};
+      const obj = {completed: false, item: todoItem};
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     }
@@ -43,9 +43,9 @@ export default {
     }
   }
   , created: function() {
-    var len = localStorage.length;
+    const len = localStorage.length;
     if (len > 0) {
-      for (var i = 0; i < len; i++) {
+      for (let i = 0; i < len; i++) {
         if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
           this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
         }
