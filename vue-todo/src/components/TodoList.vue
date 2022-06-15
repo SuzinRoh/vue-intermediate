@@ -18,10 +18,10 @@
 export default {
   props: ['propsdata']
   , methods: {
-    removeTodo: function(todoItem, index) {
+    removeTodo(todoItem, index) {
       this.$emit('throwRemoveItem', todoItem, index);
     }
-    , toggleComplete: function(todoItem, index) {
+    , toggleComplete(todoItem, index) {
       this.$emit('throwToggleItem', todoItem, index);
     }
   }
