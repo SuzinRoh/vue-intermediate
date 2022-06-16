@@ -42,23 +42,24 @@ export default {
       this.todoItems = [];
     }
   }
-  , created() {
-    const len = localStorage.length;
-    if (len > 0) {
-      for (let i = 0; i < len; i++) {
-        if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        }
-      }
-    }   
-  }
   , components: {
     TodoHeader
     , TodoInput
     , TodoList
-    , TodoFooter
+    , TodoFooter 
   }
 }
+
+
+/**
+ * js import 
+ * 
+ * import util from 'util.js';
+ * 
+ *  
+ * 
+ * 
+ */
 </script>
 
 <style>
