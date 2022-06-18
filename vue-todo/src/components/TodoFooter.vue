@@ -13,7 +13,7 @@ export default {
   methods: {
     ...mapMutations({
       clearTodo: 'clearAllItems'
-    })
+    }) 
   }
 }
 </script>

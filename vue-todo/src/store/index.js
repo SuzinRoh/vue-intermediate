@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-
 /**
  * 로컬스토레지에 있는 todo 아이템들을 갱신받아옴
  */
