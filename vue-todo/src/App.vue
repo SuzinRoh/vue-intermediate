@@ -1,11 +1,9 @@
 <template>
   <div>
     <TodoHeader></TodoHeader>
-    <TodoInput v-on:throwTodoItem="addOneItem"></TodoInput>
-    <TodoList v-bind:propsdata="todoItems" 
-      v-on:throwRemoveItem="removeOneItem" 
-      v-on:throwToggleItem="toggleOneItem"></TodoList>
-    <TodoFooter v-on:throwClearAll="clearAllItems"></TodoFooter>
+    <TodoInput></TodoInput>
+    <TodoList></TodoList>
+    <TodoFooter></TodoFooter>
   </div>
 </template>
 
@@ -17,31 +15,6 @@ import TodoFooter from './components/TodoFooter.vue'
 
 export default {
   name: 'App'
-  , data() {
-    return {
-      todoItems: []
-    }
-  }
-  , methods: {
-    addOneItem(todoItem) {
-      const obj = {completed: false, item: todoItem};
-      localStorage.setItem(todoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    }
-    , removeOneItem(todoItem, index) {
-      localStorage.removeItem(todoItem.item);
-      this.todoItems.splice(index, 1);
-    }
-    , toggleOneItem(todoItem, index) {
-      this.todoItems[index].completed = !this.todoItems[index].completed ;
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
-    }
-    , clearAllItems() {
-      localStorage.clear();
-      this.todoItems = [];
-    }
-  }
   , components: {
     TodoHeader
     , TodoInput
